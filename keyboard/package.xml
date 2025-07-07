@@ -21,6 +21,7 @@
   <depend>rclcpp</depend>
   <depend>std_msgs</depend>
   <depend>keyboard_msgs</depend>
+  <depend>sdl</depend>
 
   <export>
     <build_type>ament_cmake</build_type>
