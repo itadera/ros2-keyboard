@@ -1,6 +1,12 @@
 axes:
+  - ["KEY_DOWN", "KEY_UP"]
   - ["KEY_LEFT", "KEY_RIGHT"]
-  - ["KEY_UP", "KEY_DOWN"]
+  - ["KEY_PAGEDOWN", "KEY_PAGEUP"]
+  - ["KEY_KP4", "KEY_KP6"]
+  - ["KEY_KP2", "KEY_KP8"]
+  - ["KEY_KP_MINUS", "KEY_KP_PLUS"]
+
 
 buttons:
   - "KEY_SPACE"
+  - "KEY_ESCAPE"

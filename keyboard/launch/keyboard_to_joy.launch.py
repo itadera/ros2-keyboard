@@ -2,6 +2,8 @@ import os
 from ament_index_python.packages import get_package_share_directory
 from launch import LaunchDescription
 from launch_ros.actions import Node
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import LaunchConfiguration
 
 def generate_launch_description():
     config_file_path = os.path.join(
@@ -11,6 +13,8 @@ def generate_launch_description():
     )
 
     return LaunchDescription([
+        DeclareLaunchArgument('joy_topic_name', default_value='/keyboard/joy'),
+
         Node(
             package='keyboard',
             executable='keyboard',
@@ -21,6 +25,9 @@ def generate_launch_description():
             package='keyboard',
             executable='keyboard_to_joy.py',
             name='keyboard_to_joy_node',
-            parameters=[{'config_file_name': config_file_path}]
+            parameters=[{'config_file_name': config_file_path}],
+            remappings=[
+                ('/joy', LaunchConfiguration('joy_topic_name')),
+            ]
         ),
     ])
