@@ -69,12 +69,12 @@ class KeyboardToJoyNode(Node):
         super().__init__("keyboard_to_joy_node")
 
         # Get parameters
-        self.declare_parameter("config_file_name")
+        self.declare_parameter("config_file_name", "defalt_file_name")
         config_file_name = (
             self.get_parameter("config_file_name").get_parameter_value().string_value
         )
 
-        self.declare_parameter("sampling_frequency", 50)
+        self.declare_parameter("sampling_frequency", 30)
         hz = (
             self.get_parameter("sampling_frequency").get_parameter_value().integer_value
         )

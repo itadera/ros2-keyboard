@@ -28,6 +28,7 @@ find_package(SDL REQUIRED)
 find_package(keyboard_msgs REQUIRED)
 
 add_executable(keyboard src/keyboard.cpp)
+target_compile_definitions(keyboard PRIVATE SDL_MAIN_HANDLED)
 ament_target_dependencies(keyboard rclcpp std_msgs keyboard_msgs)
 target_include_directories(keyboard
   PUBLIC
@@ -38,7 +39,7 @@ target_include_directories(keyboard
 )
 
 target_link_libraries(keyboard
-  SDL
+ ${SDL_LIBRARY}
 )
 
 
